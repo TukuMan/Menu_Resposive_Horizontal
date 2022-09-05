@@ -1,0 +1,137 @@
+
+/*----------------------------- RESET CSS ---------------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
+}
+
+a {
+    display: block;
+}
+
+p a {
+    display: inline;
+}
+ li{
+    list-style-type: none;
+ }
+html{
+    /*Permite que cuando se depliegue un menu, se deslice mas despacio */
+    scroll-behavior: smooth;
+}
+
+/*Desactivmos estilos por defecto de las principales etiquetas de texto*/
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+    font-size: 1em;/*Se adapta al tamaño de su contenedor*/
+    font-weight: inherit;/*Se declara como heredada para poderla editar desde su etiqueta contenedora*/
+    font-style: inherit; /*Desactiva los estilos por defecto*/
+    text-decoration: none; /*Desactiva lineas y subrayados*/
+    color: inherit;
+}
+
+/*Nivelamos problemas de tipografia y colocacion de formularios*/
+form, input, textarea, select, button, label{
+    font-family: inherit;/*Permite heredar la tipografia de su contenedor*/
+    font-size: inherit;/*Permite que todos los tamaños de todos los elementos sean iguales*/
+    hyphens: auto; /*Resuelve problemas de desbordamiento*/
+    background-color: transparent;
+    display: block;
+    color: inherit;
+}
+/*Resetear el estilo de las tablas*/
+table, tr, td{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+svg{
+    width: 100%;
+    display: block;
+    fill: currentColor;
+}
+
+/*Configuramos la tipografia de la web*/
+body{
+    min-height: 100vh; 
+    font-size: 100%;
+    line-height: 1.4em; /*Configuracion recomendada de interlineado*/
+    /*hyphens: auto;Adapta los textos al tamaño de la pantalla*/
+
+}
+
+/*------------------------------------------------------------------------*/
+
+.header{
+    width: 100%;
+    background-color: #282828;
+    padding: 1em;
+
+    
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: center;
+    color: aliceblue;
+}
+.header .h1{
+    /*background-color: coral;*/
+    
+}
+.header .a{}
+
+.header .button{
+   /* background-color: crimson;*/
+    display: none;
+}
+.header .svg{
+    width: 2em;
+    height: 2em;
+}
+.header .nav{
+    /*background-color: darkgray;*/
+}
+.header .ul{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+.header .li{
+    margin: 0 .5em;
+}
+
+/*  ESTILOS RESPOSIVOS */
+
+@media screen and (max-width:480px) {
+    .header .button{
+        display: block;
+        cursor: pointer;
+    }
+    .header .nav{
+        width: 100%;
+        /*display: none;*/
+        height: 0;
+        pointer-events: none;
+        overflow: hidden;
+        transition: all 0.5s ease;  
+        
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .header .nav.activo{
+        pointer-events: auto;
+        /*display: block;*/
+        height: 50vh;
+    }
+    .header .ul{
+        flex-direction: column;
+    }
+    .header .li{
+        margin: 1em 0;
+    }
+}
